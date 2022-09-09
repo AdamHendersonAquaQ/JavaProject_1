@@ -1,6 +1,5 @@
 package com.aquaq.training;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -9,91 +8,56 @@ public class Main {
         System.out.println("Welcome to String Exercise Menu, please select an option:");
 
         programLoop: while(true) {
-            System.out.println("\nProblem Menu:");
-            System.out.println("1: Find the max occurring char in String");
-            System.out.println("2: Check 2 String are anagrams of each other");
-            System.out.println("3: Reverse entered String");
-            System.out.println("4: Check if String is a palindrome");
-            System.out.println("5: Exit");
+            printMenu();
             String answer = scanner.nextLine();
-
             switch (answer) {
                 case "1":
-                    System.out.println("Enter a string");
-                    String string1 = scanner.nextLine();
-                    System.out.println("Result: " + maxChar(string1));
-                    break;
+                    question1();break;
                 case "2":
-                    System.out.println("Enter a string");
-                    String string2 = scanner.nextLine();
-                    System.out.println("Enter another string");
-                    String string2_ = scanner.nextLine();
-                    String resultString = isAnagram(string2, string2_) ? " are anagrams" : " are not anagrams";
-                    System.out.println(string2 + " and " + string2_ + resultString);
-                    break;
+                    question2();break;
                 case "3":
-                    System.out.println("Enter a string");
-                    String string3 = scanner.nextLine();
-                    System.out.println("Result: "+reverseString(string3));
-                    break;
+                    question3();break;
                 case "4":
-                    System.out.println("Enter a string");
-                    String string4 = scanner.nextLine();
-                    String answerString = isPalindrome(string4) ? " is a Palindrome" : " is  not a Palindrome";
-                    System.out.println(string4+ answerString);
-                    break;
+                    question4();break;
                 case "5":
-                    System.out.println("Exiting game.");
-                    break programLoop;
+                    System.out.println("Exiting game.");break programLoop;
                 default:
                     System.out.println("This is not a valid string, please try again");
             }
         }
     }
-    public static String reverseString(String string)
+    public static void question1(){
+        String q1String = getAnswer("Enter a string");
+        System.out.println("Result: " + MaxCharacter.maxChar(q1String));
+    }
+    public static void question2(){
+        String q2String1 = getAnswer("Enter a string");
+        String q2String2 = getAnswer("Enter another string");
+        String resultString = Anagram.isAnagram(q2String1, q2String2) ? " are anagrams" : " are not anagrams";
+        System.out.println(q2String1 + " and " + q2String2 + resultString);
+    }
+    public static void question3(){
+        String q3String = getAnswer("Enter a string");
+        System.out.println("Result: "+Reverse.reverseString(q3String));
+    }
+    public static void question4(){
+        String q4String = getAnswer("Enter a string");
+        String answerString = Palindrome.isPalindrome(q4String) ? " is a Palindrome" : " is  not a Palindrome";
+        System.out.println(q4String + answerString);
+    }
+    public static void printMenu()
     {
-        String newString = "";
-        for(int i=string.length()-1;i>=0;i--)
-        {
-            newString+=string.charAt(i);
-        }
-        return newString;
+        System.out.println("\nProblem Menu:");
+        System.out.println("1: Find the max occurring char in String");
+        System.out.println("2: Check 2 String are anagrams of each other");
+        System.out.println("3: Reverse entered String");
+        System.out.println("4: Check if String is a palindrome");
+        System.out.println("5: Exit");
     }
-    public static boolean isPalindrome(String string){
-        String clearString = string.toLowerCase().replaceAll("[^a-zA-Z]", "");
-
-        return clearString.equals(reverseString(clearString));
-    }
-    public static boolean isAnagram(String string1, String string2){
-        String clearString1 = string1.toLowerCase().replaceAll("[^a-zA-Z]","");
-        char[] charArray = clearString1.toCharArray();
-        Arrays.sort(charArray);
-        String sortedString1 = new String(charArray);
-
-        String clearString2 = string2.toLowerCase().replaceAll("[^a-zA-Z]","");
-        charArray = clearString2.toCharArray();
-        Arrays.sort(charArray);
-        String sortedString2 = new String(charArray);
-
-        return sortedString1.equals(sortedString2);
-    }
-    public static char maxChar(String string)
+    public static String getAnswer(String question)
     {
-        int maxNum = 0;
-        char maxChar=' ';
-        for(int i =0; i<string.length();i++)
-        {
-            char newChar = string.toLowerCase().charAt(i);
-            if(newChar != ' ' && newChar != maxChar) {
-                int tempCount =0;
-                for(int k =0; k<string.length();k++) {
-                    if(string.toLowerCase().charAt(k) == string.toLowerCase().charAt(i)) {tempCount++;}
-                }
-                if(tempCount>maxNum){
-                    maxNum=tempCount;
-                    maxChar=string.toLowerCase().charAt(i);}
-            }
-        }
-        return maxChar;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(question);
+        return scanner.nextLine();
     }
 }
