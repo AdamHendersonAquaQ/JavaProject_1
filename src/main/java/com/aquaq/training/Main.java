@@ -1,4 +1,4 @@
-package com.aquaq;
+package com.aquaq.training;
 
 import java.util.Arrays;
 import java.util.Scanner;
