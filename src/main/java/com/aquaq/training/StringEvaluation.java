@@ -9,8 +9,8 @@ public class StringEvaluation {
         public static String getSortedLetters(String string){
             String cleanString = cleanString(string);
             char[] charArray = cleanString.toCharArray();
-            for(int i = 0; i < cleanString.length();i++) {
-                for(int j = i+1; j<cleanString.length();j++) {
+            for(int i = 0; i < charArray.length;i++) {
+                for(int j = i+1; j<charArray.length;j++) {
                     if(charArray[i]>charArray[j]) {
                         char temp = charArray[j];
                         charArray[j]=charArray[i];
