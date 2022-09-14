@@ -41,7 +41,7 @@ public class Main {
     }
     public static void question4(){
         String q4String = getAnswer("Enter a string");
-        String answerString = StringEvaluation.isPalindrome(q4String) ? " is a Palindrome" : " is  not a Palindrome";
+        String answerString = StringEvaluation.isPalindrome(q4String) ? " is a Palindrome" : " is not a Palindrome";
         System.out.println(q4String + answerString);
     }
     public static void printMenu()

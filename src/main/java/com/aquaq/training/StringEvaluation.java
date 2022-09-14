@@ -49,7 +49,11 @@ public class StringEvaluation {
 
     public static boolean isPalindrome(String string){
         String cleanString = cleanString(string);
-        return cleanString.equals(reverseString(cleanString));
+        for(int i =0;i<=(cleanString.length()-1)/2;i++) {
+            if(cleanString.charAt(i)!=cleanString.charAt(cleanString.length()-1-i))
+                return false;
+        }
+        return true;
     }
 
     public static String reverseString(String string)
