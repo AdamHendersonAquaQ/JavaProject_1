@@ -1,12 +1,12 @@
 package com.aquaq.training;
 
 public class StringEvaluation {
-        public static boolean isAnagram(String string1, String string2){
+        public boolean isAnagram(String string1, String string2){
             String sortedString1 = getSortedLetters(string1);
             String sortedString2 = getSortedLetters(string2);
             return sortedString1.equals(sortedString2);
         }
-        public static String getSortedLetters(String string){
+        public String getSortedLetters(String string){
             String cleanString = cleanString(string);
             char[] charArray = cleanString.toCharArray();
             for(int i = 0; i < charArray.length;i++) {
@@ -21,7 +21,7 @@ public class StringEvaluation {
             return new String(charArray);
         }
 
-    public static char maxChar(String string)
+    public char maxChar(String string)
     {
         int maxNum = 0;
         char maxChar=' ';
@@ -38,7 +38,7 @@ public class StringEvaluation {
         }
         return maxChar;
     }
-    public static int countChar(String string, char newChar)
+    public int countChar(String string, char newChar)
     {
         int counter = 0;
         for(int k =0; k<string.length();k++) {
@@ -47,7 +47,7 @@ public class StringEvaluation {
         return counter;
     }
 
-    public static boolean isPalindrome(String string){
+    public boolean isPalindrome(String string){
         String cleanString = cleanString(string);
         for(int i =0;i<=(cleanString.length()-1)/2;i++) {
             if(cleanString.charAt(i)!=cleanString.charAt(cleanString.length()-1-i))
@@ -56,7 +56,7 @@ public class StringEvaluation {
         return true;
     }
 
-    public static String reverseString(String string)
+    public String reverseString(String string)
     {
         String newString = "";
         for(int i=string.length()-1;i>=0;i--) {
@@ -65,7 +65,7 @@ public class StringEvaluation {
         return newString;
     }
 
-    public static String cleanString(String string)
+    public String cleanString(String string)
     {
         return string.toLowerCase().replaceAll("[^a-zA-Z]","");
     }
