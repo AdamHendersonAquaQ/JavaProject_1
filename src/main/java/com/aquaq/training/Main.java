@@ -11,13 +11,14 @@ public class Main {
             String answer = scanner.nextLine();
             switch (answer) {
                 case "1":
-                    question1();break;
+                    question1(getAnswer("Enter a string"));break;
                 case "2":
-                    question2();break;
+                    question2(getAnswer("Enter a string"),
+                            getAnswer("Enter another string"));break;
                 case "3":
-                    question3();break;
+                    question3(getAnswer("Enter a string"));break;
                 case "4":
-                    question4();break;
+                    question4(getAnswer("Enter a string"));break;
                 case "5":
                     System.out.println("Exiting game.");break programLoop;
                 default:
@@ -25,22 +26,17 @@ public class Main {
             }
         } while(true);
     }
-    public static void question1(){
-        String q1String = getAnswer("Enter a string");
+    public static void question1(String q1String){
         System.out.println("Result: " + StringEvaluation.maxChar(q1String));
     }
-    public static void question2(){
-        String q2String1 = getAnswer("Enter a string");
-        String q2String2 = getAnswer("Enter another string");
+    public static void question2(String q2String1, String q2String2){
         String resultString = StringEvaluation.isAnagram(q2String1, q2String2) ? " are anagrams" : " are not anagrams";
         System.out.println(q2String1 + " and " + q2String2 + resultString);
     }
-    public static void question3(){
-        String q3String = getAnswer("Enter a string");
+    public static void question3(String q3String){
         System.out.println("Result: "+StringEvaluation.reverseString(q3String));
     }
-    public static void question4(){
-        String q4String = getAnswer("Enter a string");
+    public static void question4(String q4String){
         String answerString = StringEvaluation.isPalindrome(q4String) ? " is a Palindrome" : " is not a Palindrome";
         System.out.println(q4String + answerString);
     }
