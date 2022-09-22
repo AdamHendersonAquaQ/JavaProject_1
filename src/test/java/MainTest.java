@@ -46,8 +46,8 @@ public class MainTest {
     public void printMenuTest()
     {
         Main.printMenu();
-        assertTrue(out.toString().replaceAll(" ","")
-                .replaceAll("\n","").endsWith("ProblemMenu:" +
+        assertTrue(out.toString().replaceAll("\\s+","")
+                .endsWith("ProblemMenu:" +
                 "1:FindthemaxoccurringcharinString"+
                 "2:Check2Stringareanagramsofeachother"+
                 "3:ReverseenteredString"+
@@ -58,29 +58,25 @@ public class MainTest {
     @Test
     public void question1Test(){
         Main.question1("test");
-        assertTrue(out.toString().replaceAll(" ","")
-                .replaceAll("\n","").endsWith("Result:t"));
+        assertTrue(out.toString().replaceAll("\\s+","").endsWith("Result:t"));
     }
 
     @Test
     public void question2Test(){
         Main.question2("test","tset");
-        assertTrue(out.toString().replaceAll(" ","")
-                .replaceAll("\n","").endsWith("testandtsetareanagrams"));
+        assertTrue(out.toString().replaceAll("\\s+","").endsWith("testandtsetareanagrams"));
     }
 
     @Test
     public void question3Test(){
         Main.question3("test");
-        assertTrue(out.toString().replaceAll(" ","")
-                .replaceAll("\n","").endsWith("Result:tset"));
+        assertTrue(out.toString().replaceAll("\\s+","").endsWith("Result:tset"));
     }
 
     @Test
     public void question4Test(){
         Main.question4("test");
-        assertTrue(out.toString().replaceAll(" ","")
-                .replaceAll("\n","").endsWith("testisnotaPalindrome"));
+        assertTrue(out.toString().replaceAll("\\s+","").endsWith("testisnotaPalindrome"));
     }
 
     @Test
@@ -89,8 +85,7 @@ public class MainTest {
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         Main.main(new String[0]);
-        assertTrue(out.toString().replaceAll(" ","")
-                .replaceAll("\n","").endsWith("Exitinggame."));
+        assertTrue(out.toString().replaceAll("\\s+","").endsWith("Exitinggame."));
     }
     @Test
     public void mainLoopTest(){
@@ -98,9 +93,8 @@ public class MainTest {
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         Main.main(new String[0]);
-        assertTrue(out.toString().replaceAll(" ","")
-                .replaceAll("\n","").endsWith("Thisisnotavalidoption,pleasetryagain"+
-                        ""+
+        assertTrue(out.toString().replaceAll("\\s+","")
+                .endsWith("Thisisnotavalidoption,pleasetryagain"+
                         "ProblemMenu:"+
                         "1:FindthemaxoccurringcharinString"+
                         "2:Check2Stringareanagramsofeachother"+
@@ -124,8 +118,8 @@ public class MainTest {
 
         Main.stringEvaluation=mockStringEvaluation;
         Main.main(new String[0]);
-        assertTrue(out.toString().replaceAll(" ","")
-                .replaceAll("\n","").endsWith("WelcometoStringExerciseMenu,pleaseselectanoption:"+
+        assertTrue(out.toString().replaceAll("\\s+","")
+                .endsWith("WelcometoStringExerciseMenu,pleaseselectanoption:"+
                 "ProblemMenu:"+
                 "1:FindthemaxoccurringcharinString"+
                 "2:Check2Stringareanagramsofeachother"+
